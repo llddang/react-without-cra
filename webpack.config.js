@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const DotenvWebpack = require("dotenv-webpack");
+
+const mode = process.env.NODE_ENV || "development";
 
 module.exports = {
   entry: "./src/app.js",
@@ -25,6 +28,9 @@ module.exports = {
       template: "index.html",
       filename: "index.html",
     }),
+    new DotenvWebpack({
+      path: `./.env.${process.env.NODE_ENV || "development"}`,
+    }),
   ],
   devServer: {
     static: {
@@ -34,5 +40,5 @@ module.exports = {
     open: true,
     hot: true,
   },
-  mode: "development",
+  mode,
 };
