@@ -26,5 +26,13 @@ module.exports = {
       filename: "index.html",
     }),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    port: 9000,
+    open: true,
+    hot: true,
+  },
   mode: "development",
 };
