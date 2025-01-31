@@ -11,15 +11,10 @@
     <div id="root"></div>
     <script>
       const App = () => {
-        return (
-          <>
-            <h1>Hello World</h1>
-          </>
-        );
-
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(<App />);
+        return React.createElement("h1", null, "Hello, World!");
       };
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(App));
     </script>
   </body>
 </html>
